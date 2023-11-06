@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.FlowDefinitionMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.FlowDefinition">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="director_max_level" jdbcType="INTEGER" property="directorMaxLevel" />
+    <result column="definition_code" jdbcType="VARCHAR" property="definitionCode" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="definition_user_id" jdbcType="INTEGER" property="definitionUserId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="full_name" jdbcType="VARCHAR" property="fullName" />
+    <result column="module_id" jdbcType="INTEGER" property="moduleId" />
+    <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="definition_node" jdbcType="LONGVARCHAR" property="definitionNode" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, director_max_level, definition_code, company_id, definition_user_id, 
+    user_name, full_name, module_id, module_name, `status`, definition_node, created_time, 
+    updated_time, deleted, code
+  </sql>
+</mapper>

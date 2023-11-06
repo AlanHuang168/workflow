@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.User">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="province_regioncode" jdbcType="VARCHAR" property="provinceRegioncode" />
+    <result column="city_regioncode" jdbcType="VARCHAR" property="cityRegioncode" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="notify_message" jdbcType="TINYINT" property="notifyMessage" />
+    <result column="notify_todo" jdbcType="TINYINT" property="notifyTodo" />
+    <result column="confirmation_image" jdbcType="VARCHAR" property="confirmationImage" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+    <result column="update_pwd_time" jdbcType="TIMESTAMP" property="updatePwdTime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, `password`, email, mobile, nickname, phone, province_regioncode, city_regioncode, 
+    address, avatar, role_id, company_id, notify_message, notify_todo, confirmation_image, 
+    create_time, update_time, tenant_code, update_pwd_time, code
+  </sql>
+</mapper>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.FlowInstanceNodeMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.FlowInstanceNode">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="node_id" jdbcType="INTEGER" property="nodeId" />
+    <result column="node_parent_id" jdbcType="INTEGER" property="nodeParentId" />
+    <result column="instance_id" jdbcType="INTEGER" property="instanceId" />
+    <result column="instance_code" jdbcType="VARCHAR" property="instanceCode" />
+    <result column="task_code" jdbcType="VARCHAR" property="taskCode" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="full_name" jdbcType="VARCHAR" property="fullName" />
+    <result column="def_node_id" jdbcType="INTEGER" property="defNodeId" />
+    <result column="def_node_code" jdbcType="VARCHAR" property="defNodeCode" />
+    <result column="action_status" jdbcType="INTEGER" property="actionStatus" />
+    <result column="action_time" jdbcType="TIMESTAMP" property="actionTime" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, node_id, node_parent_id, instance_id, instance_code, task_code, company_id, user_id,
+    user_name, full_name, def_node_id, def_node_code, action_status, action_time, note,
+    created_time, updated_time, code
+  </sql>
+  <select id="getMyTaskPage" resultType="org.apache.alan.wrokflow.vo.FlowInstancePageVo">
+    SELECT
+    fin.id AS id,
+    fi.title AS title,
+    fi.content AS content,
+    fi.user_id AS applyUserId,
+    fi.user_name AS applyUserName,
+    fin.user_id AS userId,
+    fin.user_name AS userName,
+    fi.module_id AS moduleId,
+    fi.module_name AS moduleName,
+    fi.`status` AS `status`,
+    fin.created_time AS createdTime,
+    fin.action_status AS actionStatus,
+    fin.`code` AS `code`,
+    fi.`code` AS instanceCode
+    FROM flow_instance_node fin
+    LEFT JOIN flow_instance fi ON fi.id = fin.instance_id
+    LEFT JOIN flow_definition_node fdn ON fdn.id = fin.node_id
+    WHERE fin.company_id = #{dto.companyId}
+    <if test="dto.moduleId != null and dto.moduleId != 0">
+      AND fi.module_id = #{dto.moduleId}
+    </if>
+    <if test="dto.startTime != null and dto.startTime != '' and dto.endTime != null and dto.endTime != '' ">
+      AND DATE_FORMAT(fin.created_time,'%Y-%m-%d') <![CDATA[ >= ]]> STR_TO_DATE(#{dto.startTime}, '%Y-%m-%d')
+      AND DATE_FORMAT(fin.created_time,'%Y-%m-%d') <![CDATA[ <= ]]> STR_TO_DATE(#{dto.endTime}, '%Y-%m-%d')
+    </if>
+    <if test="dto.status != null and dto.status == 0">
+      AND fin.user_id = #{dto.userId}
+    </if>
+    <if test="dto.status != null and dto.status == 1">
+      AND fin.user_id = #{dto.userId}
+      AND fin.action_status = 0
+    </if>
+    <if test="dto.status != null and dto.status == 2">
+      AND fin.user_id = #{dto.userId}
+      AND fin.action_status IN(1,2)
+    </if>
+    <if test="dto.status != null and dto.status == 3">
+      AND fi.user_id = #{dto.userId}
+    </if>
+    <if test="dto.status != null and dto.status == 4">
+      AND fin.user_id = #{dto.userId}
+      AND fdn.type = 2
+    </if>
+    order by fin.id desc
+  </select>
+  <select id="getMyTaskPageNew" resultType="org.apache.alan.wrokflow.vo.FlowInstancePageVo">
+    SELECT
+    fi.id AS id,
+    fi.title AS title,
+    fi.content AS content,
+    fi.user_id AS applyUserId,
+    fi.user_name AS applyUserName,
+    fi.module_id AS moduleId,
+    fi.module_name AS moduleName,
+    fi.`status` AS `status`,
+    fi.created_time AS createdTime,
+    fi.`code` AS instanceCode
+    FROM flow_instance fi
+    WHERE fi.company_id = #{dto.companyId}
+    AND fi.user_id = #{dto.userId}
+    <if test="dto.moduleId != null and dto.moduleId != 0">
+      AND fi.module_id = #{dto.moduleId}
+    </if>
+    <if test="dto.startTime != null and dto.startTime != '' and dto.endTime != null and dto.endTime != '' ">
+      AND DATE_FORMAT(fi.created_time,'%Y-%m-%d') <![CDATA[ >= ]]> STR_TO_DATE(#{dto.startTime}, '%Y-%m-%d')
+      AND DATE_FORMAT(fi.created_time,'%Y-%m-%d') <![CDATA[ <= ]]> STR_TO_DATE(#{dto.endTime}, '%Y-%m-%d')
+    </if>
+    order by fi.created_time desc
+  </select>
+
+</mapper>

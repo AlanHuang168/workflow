@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.FlowModuleMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.FlowModule">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="module_code" jdbcType="VARCHAR" property="moduleCode" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="rel_class" jdbcType="VARCHAR" property="relClass" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, code, `name`, parent_id, module_code, sort, remark, rel_class, deleted, logo
+  </sql>
+  <select id="getFlowModuleByParentId" resultType="org.apache.alan.wrokflow.vo.GetFlowModuleVo">
+    SELECT
+    fm.*,( SELECT `code` FROM flow_module WHERE id = fm.parent_id ) AS parentCode
+    FROM
+    flow_module fm
+    WHERE
+    fm.deleted = 0
+    <if test="parentId != null">
+      AND fm.parent_id = #{parentId}
+    </if>
+    ORDER BY
+    fm.sort ASC
+  </select>
+  <select id="getFlowModuleDetail" resultType="org.apache.alan.wrokflow.vo.GetFlowModuleVo">
+    SELECT
+    fm.*,( SELECT `code` FROM flow_module WHERE id = fm.parent_id ) AS parentCode
+    FROM
+    flow_module fm
+    WHERE
+    fm.deleted = 0
+    AND fm.`code` = #{code}
+  </select>
+
+</mapper>

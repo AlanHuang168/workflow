@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.FlowMyModuleMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.FlowMyModule">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="module_id" jdbcType="INTEGER" property="moduleId" />
+    <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+    <result column="open" jdbcType="BIT" property="open" />
+    <result column="def_name" jdbcType="VARCHAR" property="defName" />
+    <result column="definition_id" jdbcType="INTEGER" property="definitionId" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="flow_set" jdbcType="INTEGER" property="flowSet" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, code, company_id, module_id, module_name, `open`, def_name, definition_id, remark,
+    flow_set, deleted, created_time, updated_time
+  </sql>
+  <select id="getFlowDefinitionByModuleAndCompany"
+          resultType="org.apache.alan.wrokflow.vo.FlowModuleGetCompanyVo">
+    SELECT
+    fm.`open`,
+    fd.name AS defName,
+    fm.definition_id AS definitionId,
+    fd.`code`,
+    fd.status
+    FROM
+    flow_my_module fm
+    LEFT JOIN flow_definition fd ON fm.definition_id = fd.id
+    WHERE
+    fm.deleted = 0
+    AND fm.company_id = #{companyId}
+    AND fm.module_id = #{moduleId}
+    ORDER BY
+    fm.created_time DESC
+  </select>
+</mapper>

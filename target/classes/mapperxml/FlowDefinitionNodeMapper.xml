@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.FlowDefinitionNodeMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.FlowDefinitionNode">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="definition_id" jdbcType="INTEGER" property="definitionId" />
+    <result column="node_code" jdbcType="VARCHAR" property="nodeCode" />
+    <result column="node_name" jdbcType="VARCHAR" property="nodeName" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="parent_code" jdbcType="VARCHAR" property="parentCode" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="priority_level" jdbcType="VARCHAR" property="priorityLevel" />
+    <result column="settype" jdbcType="INTEGER" property="settype" />
+    <result column="select_mode" jdbcType="INTEGER" property="selectMode" />
+    <result column="select_range" jdbcType="INTEGER" property="selectRange" />
+    <result column="director_level" jdbcType="INTEGER" property="directorLevel" />
+    <result column="examine_mode" jdbcType="INTEGER" property="examineMode" />
+    <result column="no_hander_action" jdbcType="INTEGER" property="noHanderAction" />
+    <result column="examine_end_director_level" jdbcType="INTEGER" property="examineEndDirectorLevel" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="cc_self_select_flag" jdbcType="INTEGER" property="ccSelfSelectFlag" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="sponsor_all_flag" jdbcType="BIT" property="sponsorAllFlag" />
+    <result column="definition_sort" jdbcType="INTEGER" property="definitionSort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, definition_id, node_code, node_name, parent_id, parent_code, `type`, priority_level,
+    settype, select_mode, select_range, director_level, examine_mode, no_hander_action,
+    examine_end_director_level, deleted, cc_self_select_flag, created_time, updated_time,
+    sponsor_all_flag, definition_sort
+  </sql>
+  <select id="findById" resultType="org.apache.alan.wrokflow.dao.po.FlowDefinitionNode">
+    select * from flow_definition_node where id = #{id}
+  </select>
+</mapper>

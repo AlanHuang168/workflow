@@ -1,0 +1,50 @@
+HELP.md
+target/
+logging.path_IS_UNDEFINED/
+logging.path_IS_UNDEFINED/fenxiaoyi-api.info.log
+logs/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+*mvn*
+*.log
+*.log.zip
+.gradle
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+node_modules/
+
+### VS Code ###
+.vscode/
+
+## flattened
+.flattened-pom.xml
+package-lock.json
+*env.json
+*.http
+
+!/logging.path_IS_UNDEFINED/fenxiaoyi-api.info.log
+fenxiaoyi.*.gz

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.FlowNodeConditionMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.FlowNodeCondition">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="column_id" jdbcType="INTEGER" property="columnId" />
+    <result column="node_id" jdbcType="INTEGER" property="nodeId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="opt_type" jdbcType="VARCHAR" property="optType" />
+    <result column="zdy1" jdbcType="VARCHAR" property="zdy1" />
+    <result column="zdy2" jdbcType="VARCHAR" property="zdy2" />
+    <result column="opt1" jdbcType="VARCHAR" property="opt1" />
+    <result column="opt2" jdbcType="VARCHAR" property="opt2" />
+    <result column="cloumn_db_name" jdbcType="VARCHAR" property="cloumnDbName" />
+    <result column="column_type" jdbcType="VARCHAR" property="columnType" />
+    <result column="show_type" jdbcType="VARCHAR" property="showType" />
+    <result column="show_name" jdbcType="VARCHAR" property="showName" />
+    <result column="fixed_down_box_value" jdbcType="VARCHAR" property="fixedDownBoxValue" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="user_ids" jdbcType="VARCHAR" property="userIds" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, column_id, node_id, `type`, opt_type, zdy1, zdy2, opt1, opt2, cloumn_db_name, 
+    column_type, show_type, show_name, fixed_down_box_value, deleted, created_time, updated_time, 
+    user_ids
+  </sql>
+</mapper>

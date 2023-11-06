@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+       <localRepository>F:\apache-maven-3.3.3\repository</localRepository>
+
+  <pluginGroups>
+
+  </pluginGroups>
+
+
+  <proxies>
+
+  </proxies>
+
+
+  <servers>
+
+  </servers>
+
+
+  <mirrors>
+    <mirror>
+      <id>alimaven</id>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+
+<profiles>
+       <profile>
+           <id>dev</id>
+            <repositories>
+                <repository>
+                    <id>github-releases</id>
+                    <url>http://oss.sonatype.org/content/repositories/github-releases/</url>
+                </repository>
+                <repository>
+                    <id>clojars.org</id>
+                    <url>http://clojars.org/repo</url>
+                </repository>
+                <repository>
+                    <id>nexus</id>
+                    <name>local private nexus</name>
+                    <url>http://maven.oschina.net/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                 <repository>
+                  <id>central2</id>
+                  <name>Central Repository2</name>
+                  <url>http://repo1.maven.apache.org/maven2</url>
+                  <layout>default</layout>
+                  <snapshots>
+                    <enabled>false</enabled>
+                  </snapshots>
+                </repository>
+                <repository>
+                    <id>alimaven</id>
+                    <name>Maven Aliyun Mirror</name>
+                    <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+             </repositories>
+             <pluginRepositories>
+                <pluginRepository>
+                   <id>oschinaplug</id>
+                   <url>http://maven.oschina.net/content/groups/public</url>
+                   <releases>
+                       <enabled>true</enabled>
+                   </releases>
+                   <snapshots>
+                       <enabled>true</enabled>
+                   </snapshots>
+               </pluginRepository>
+
+              <pluginRepository>
+                   <id>repoplugin</id>
+                   <url>http://repo1.maven.org/maven2</url>
+                   <releases>
+                       <enabled>true</enabled>
+                   </releases>
+                   <snapshots>
+                       <enabled>true</enabled>
+                   </snapshots>
+               </pluginRepository>
+           </pluginRepositories>
+           </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>dev</activeProfile>
+    </activeProfiles>
+
+</settings>

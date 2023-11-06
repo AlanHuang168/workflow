@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apache.alan.wrokflow.dao.mapper.FlowInstanceMapper">
+  <resultMap id="BaseResultMap" type="org.apache.alan.wrokflow.dao.po.FlowInstance">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="instance_code" jdbcType="VARCHAR" property="instanceCode" />
+    <result column="definition_id" jdbcType="INTEGER" property="definitionId" />
+    <result column="definition_code" jdbcType="VARCHAR" property="definitionCode" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="full_name" jdbcType="VARCHAR" property="fullName" />
+    <result column="module_id" jdbcType="INTEGER" property="moduleId" />
+    <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+    <result column="b_id" jdbcType="INTEGER" property="bId" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="biz_amount" jdbcType="DECIMAL" property="bizAmount" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="b_code" jdbcType="VARCHAR" property="bCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, instance_code, definition_id, definition_code, user_id, user_name, company_id, 
+    full_name, module_id, module_name, b_id, deleted, `status`, created_time, updated_time, 
+    code, biz_amount, content, b_code
+  </sql>
+</mapper>

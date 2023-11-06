@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+mybatis-plus:
+  mapper-locations: classpath*:/org/apache/alan/workflow/mapper/**/mapper/*.xml,classpath*:/mapper/*.xml
+  type-aliases-package: org.apache.alan.wrokflow.dao.po
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      capital-mode: false
