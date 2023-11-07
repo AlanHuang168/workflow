@@ -35,7 +35,7 @@ public class FlowTestServiceImpl implements FlowTestService {
         }
         FlowTestCreateVo vo = new FlowTestCreateVo();
         vo.setBId(1);
-        //业务逻辑
+        //创建订单的业务逻辑
         return vo;
     }
 
